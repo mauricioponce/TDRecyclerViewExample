@@ -2,6 +2,9 @@ package com.example.recyclerviewexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initRecycler() {
-        // data
+        // datos
         //List<String> data = getData();
         List<Person> data = getDataPerson();
 
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         // enlaza el adapter con el recyclerview
         binding.recyclerView.setAdapter(countriesAdapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         binding.recyclerView.addItemDecoration(new DividerItemDecoration(binding.recyclerView.getContext(), DividerItemDecoration.VERTICAL));
     }
 
@@ -46,9 +50,22 @@ public class MainActivity extends AppCompatActivity {
 
     public List<Person> getDataPerson() {
         List<Person> persons = new ArrayList<>();
-        persons.add(new Person("Florencia", "Hidalgo", 23));
-        persons.add(new Person("Ginger", "Cea", 23));
-        persons.add(new Person("Sergio", "Molina", 25));
+        persons.add(new Person("Juan", "Pérez", 25));
+        persons.add(new Person("María", "Gómez", 32));
+        persons.add(new Person("Pedro", "López", 40));
+        persons.add(new Person("Laura", "Rodríguez", 28));
+        persons.add(new Person("Carlos", "Fernández", 37));
+        persons.add(new Person("Ana", "Martínez", 31));
+        persons.add(new Person("Luis", "Sánchez", 42));
+        persons.add(new Person("Sofía", "Hernández", 29));
+        persons.add(new Person("Andrés", "González", 36));
+        persons.add(new Person("Isabela", "Torres", 27));
+        persons.add(new Person("Martín", "Rivera", 35));
+        persons.add(new Person("Valentina", "Cruz", 30));
+        persons.add(new Person("Diego", "Mendoza", 38));
+        persons.add(new Person("Carolina", "Jiménez", 26));
+        persons.add(new Person("Gabriel", "Silva", 33));
+        persons.add(new Person("Paula", "Ortega", 39));
         return persons;
     }
 
