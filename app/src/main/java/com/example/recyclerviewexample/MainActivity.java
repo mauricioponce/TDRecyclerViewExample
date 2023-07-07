@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void initRecycler() {
         // datos
-        //List<String> data = getData();
-        List<Person> data = getDataPerson();
+        List<String> data = getData();
 
         // Adapter
         MyAdapter countriesAdapter = new MyAdapter();
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
         // enlaza el adapter con el recyclerview
         binding.recyclerView.setAdapter(countriesAdapter);
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         binding.recyclerView.addItemDecoration(new DividerItemDecoration(binding.recyclerView.getContext(), DividerItemDecoration.VERTICAL));
     }
 

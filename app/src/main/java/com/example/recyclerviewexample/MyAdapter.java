@@ -12,10 +12,10 @@ import com.example.recyclerviewexample.databinding.ItemBinding;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private List<Person> persons;
+    private List<String> words;
 
-    public void setPersons(List<Person> persons) {
-        this.persons = persons;
+    public void setPersons(List<String> persons) {
+        this.words = persons;
     }
 
     @NonNull
@@ -30,14 +30,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Log.d("MyAdapter", "onBindViewHolder ----");
-        Person person = persons.get(position);
+        String word = words.get(position);
 
-        holder.bind(person);
+        holder.bind(word);
     }
 
     @Override
     public int getItemCount() {
-        return persons.size();
+        return words.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -49,11 +49,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         }
 
-        public void bind(Person person) {
-            //Log.d("MyAdapter - MyViewHolder", "bind ----");
-            binding.tvName.setText(person.getName());
-            binding.tvLastname.setText(person.getLastname());
-            binding.tvAge.setText(String.valueOf(person.getAge()));
+        public void bind(String word) {
+            binding.tvName.setText(word);
         }
     }
 }
