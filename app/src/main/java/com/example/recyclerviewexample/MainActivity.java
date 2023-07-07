@@ -1,6 +1,7 @@
 package com.example.recyclerviewexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 import android.os.Bundle;
 
@@ -25,14 +26,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void initRecycler() {
         // data
-        List<String> data = getData();
+        //List<String> data = getData();
+        List<Person> data = getDataPerson();
 
         // Adapter
         MyAdapter countriesAdapter = new MyAdapter();
-        countriesAdapter.setCountries(data);
+        countriesAdapter.setPersons(data);
 
         // enlaza el adapter con el recyclerview
         binding.recyclerView.setAdapter(countriesAdapter);
+        binding.recyclerView.addItemDecoration(new DividerItemDecoration(binding.recyclerView.getContext(), DividerItemDecoration.VERTICAL));
     }
 
     public List<String> getOtherData() {
@@ -40,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
         countries.add("Chile");
         return countries;
     }
+
+    public List<Person> getDataPerson() {
+        List<Person> persons = new ArrayList<>();
+        persons.add(new Person("Florencia", "Hidalgo", 23));
+        persons.add(new Person("Ginger", "Cea", 23));
+        persons.add(new Person("Sergio", "Molina", 25));
+        return persons;
+    }
+
 
     public List<String> getData() {
         ArrayList<String> paises = new ArrayList<>();
